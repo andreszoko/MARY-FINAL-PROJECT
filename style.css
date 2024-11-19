@@ -1,0 +1,128 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Color de fondo claro */
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Encabezado */
+header {
+    background-color: #6f2c91; /* Morado oscuro */
+}
+
+/* Estilo para los botones */
+.btn-primary {
+    background-color: #d4af37; /* Dorado */
+    border-color: #d4af37; /* Bordes dorados */
+}
+
+.btn-primary:hover {
+    background-color: #b5942d; /* Dorado más oscuro al pasar el mouse */
+    border-color: #b5942d; /* Bordes dorados más oscuros */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
+}
+
+.btn-warning {
+    background-color: #6f2c91; /* Morado */
+    border-color: #6f2c91; /* Bordes morados */
+}
+
+.btn-warning:hover {
+    background-color: #5b237b; /* Morado más oscuro al pasar el mouse */
+    border-color: #5b237b; /* Bordes morados más oscuros */
+}
+
+/* Estilos para las tarjetas de productos */
+.card {
+    border: 1px solid #d4af37; /* Bordes dorados */
+    transition: transform 0.3s, box-shadow 0.3s; /* Efecto de transformación */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Aumentar el tamaño al pasar el mouse */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #6f2c91; /* Morado oscuro */
+}
+
+/* Estilo para los títulos */
+h1, h2, h4 {
+    color: #d4af37; /* Dorado */
+}
+
+/* Estilo para los enlaces en el pie de página */
+footer a {
+    color: #d4af37; /* Dorado */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Loader */
+.loader {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.loader::after {
+    border: 8px solid #d4af37; /* Dorado */
+}
+
+/* Animaciones de entrada */
+.animate__animated {
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.carousel {
+    width: 100%; /* Ancho completo */
+    overflow: hidden; /* Ocultar el desbordamiento */
+}
+
+.carousel-inner {
+    display: flex; /* Para mostrar elementos en línea */
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Altura reducida para parecer más compacto */
+    background-color: #f8f9fa; /* Color de fondo */
+    border: 1px solid #007bff; /* Borde azul */
+    border-radius: 3px; /* Bordes redondeados */
+    margin: 0 5px; /* Margen reducido entre los elementos */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 4%; /* Ancho reducido de los controles */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #007bff; /* Color de los íconos de control */
+    border-radius: 50%; /* Bordes redondeados para los íconos */
+    width: 20px; /* Ancho de los íconos */
+    height: 20px; /* Altura de los íconos */
+}

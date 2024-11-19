@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="carrito.js" defer></script>
+</head>
+<body>
+
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Tu Carrito de Compras</h1>
+    </header>
+
+    <main class="container my-5">
+        <div id="carrito-contenido" class="row"></div>
+        <div class="text-center mt-3">
+            <a href="index.html" class="btn btn-success">Seguir Comprando</a>
+            <button id="btn-finalizar" class="btn btn-danger">Finalizar Compra</button>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2023 Tu Tienda. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Cargar los productos del carrito desde localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const carritoContenido = $('#carrito-contenido');
+
+            if (carrito.length === 0) {
+                carritoContenido.html('<h3 class="text-center">Tu carrito está vacío.</h3>');
+            } else {
+                carrito.forEach(item => {
+                    carritoContenido.append(`
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h4 class="card-title">${item.nombre}</h4>
+                                    <p class="precio">Precio: <span>${item.precio.toFixed(2)}</span></p>
+                                    <p>Cantidad: <span>${item.cantidad}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            }
+
+            // Manejar la finalización de la compra
+            $('#btn-finalizar').on('click', function() {
+                if (carrito.length === 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Carrito vacío',
+                        text: 'No puedes finalizar la compra sin productos en el carrito.',
+                    });
+                } else {
+                    // Aquí puedes agregar la lógica para procesar el pago
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Compra finalizada',
+                        text: 'Gracias por tu compra. Tu pedido ha sido procesado.',
+                    });
+                    // Limpiar el carrito
+                    localStorage.removeItem('carrito');
+                    carritoContenido.empty().html('<h3 class="text-center">Gracias por tu compra.</h3>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
